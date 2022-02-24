@@ -1,0 +1,54 @@
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: relative;
+
+    width: 350px;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 16px;
+
+    background-color: #fff;
+    box-shadow: 2px 2px 5px 1px;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+}
+
+.delete-btn,
+.edit-btn {
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+
+    background-color: #fff;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.delete-btn {
+    right: 10px;
+}
+
+.edit-btn {
+    right: 45px;
+}
+
+.delete-btn:hover,
+.edit-btn:hover {
+    background: rgb(241, 241, 241);
+}
+
+.delete-btn:active,
+.edit-btn:active {
+    background: rgb(218, 218, 218);
+}

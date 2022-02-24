@@ -5,7 +5,8 @@
 }
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +20,9 @@
   align-items: center;
   flex-direction: column;
 
+  height: 100%;
+  width: 350px;
+  margin: 2rem;
   padding: 2rem;
   border-radius: 16px;
 
@@ -37,11 +41,11 @@
   margin: 0.5rem;
 }
 
-.input-container > *{
+.input-container > * {
   margin: 0.5rem;
 }
 
-.input-container input[type='text']{
+.input-container input[type="text"] {
   width: 250px;
   padding: 1rem;
   outline: none;
@@ -64,7 +68,13 @@
   resize: none;
 }
 
-button {
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
   cursor: pointer;
   border: 1px solid #333;
   outline: none;
@@ -72,15 +82,16 @@ button {
   color: #fff;
 
   padding: 1rem 2rem;
+  margin: 0.2rem;
   border-radius: 16px;
   font-size: 1rem;
   font-weight: bold;
 }
 
-button:hover{
+.btn:hover {
   background-color: rgb(0, 190, 0);
 }
 
-button:active{
+.btn:active {
   background-color: rgb(0, 110, 0);
 }
