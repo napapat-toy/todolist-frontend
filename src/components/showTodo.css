@@ -13,6 +13,13 @@
 
     background-color: #fff;
     box-shadow: 2px 2px 5px 1px;
+
+    font-family: sans-serif;
+    text-align: center;
+}
+
+p {
+    margin-top: 1rem;
 }
 
 img {
@@ -43,12 +50,18 @@ img {
     right: 45px;
 }
 
-.delete-btn:hover,
+.delete-btn:hover {
+    background: rgb(255, 131, 131);
+}
+
 .edit-btn:hover {
     background: rgb(241, 241, 241);
 }
 
-.delete-btn:active,
+.delete-btn:active {
+    background: rgb(255, 0, 0);
+}
+
 .edit-btn:active {
     background: rgb(218, 218, 218);
 }

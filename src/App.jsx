@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { deleteTodolist, getTodolist } from './actions/todolistAction'
+import { deleteTodolist, getTodolist, updateTodolist } from './actions/todolistAction'
 import { useEffect } from 'react';
 import ShowTodo from './components/ShowTodo';
 import { createTodolist } from './actions/todolistAction';
@@ -12,21 +12,36 @@ function App() {
   })
 
   const [allTodo, setAllTodo] = useState([])
+  const [editTodo, setEditTodo] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    createTodolist(todoData)
+    if (editTodo) {
+      updateTodolist(todoData._id, todoData)
+      setEditTodo(false)
+    } else {
+      createTodolist(todoData)
+    }
+    setTodoData({ header: '', text: '' })
   }
 
   const handleDelete = (id) => {
+    if (editTodo) {
+      setEditTodo(false)
+      setTodoData({ header: '', text: '' })
+    }
     deleteTodolist(id)
   }
 
-  const handleEdit = (id) => {
-    console.log(`Edit : ${id}`);
+  const handleEdit = (todo) => {
+    setEditTodo(true)
+    setTodoData(todo)
   }
 
   const handleClear = () => {
+    if (editTodo) {
+      setEditTodo(false)
+    }
     setTodoData({ header: '', text: '' })
   }
 
@@ -49,7 +64,7 @@ function App() {
             <textarea name="detail" id="detail" value={todoData.text} onChange={(e) => setTodoData({ ...todoData, text: e.target.value })}></textarea>
           </div>
           <div className="btn-group">
-            <button type='submit' className='btn'>Add todo</button>
+            <button type='submit' className='btn'>{editTodo ? 'Edit todo' : 'Add todo'}</button>
             <button type='button' className='btn' onClick={handleClear}>Clear</button>
           </div>
         </form>
@@ -57,7 +72,7 @@ function App() {
 
       <div className="showtodo">
         {allTodo.map((todo) => (
-          <ShowTodo key={todo._id} header={todo.header} text={todo.text} handleEdit={() => handleEdit(todo._id)} handleDelete={() => handleDelete(todo._id)} />
+          <ShowTodo key={todo._id} header={todo.header} text={todo.text} handleEdit={() => handleEdit(todo)} handleDelete={() => handleDelete(todo._id)} />
         ))}
       </div>
 
