@@ -17,8 +17,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (editTodo) {
-      console.log(todoData);
-      updateTodolist(todoData._id, todoData)
+      updateTodolist(todoData._id, { header: todoData.header, text: todoData.text })
       setEditTodo(false)
     } else {
       createTodolist(todoData)

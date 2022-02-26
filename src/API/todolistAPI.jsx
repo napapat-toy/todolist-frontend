@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API = axios.create({ baseURL: 'http://localhost:8000/api/todolist' })
+const API = axios.create({ baseURL: 'https://todolist-app-project.herokuapp.com/api/todolist' })
 
 export const fetchTodolist = () => API.get(`/`)
 export const createTodolist = (todolist) => API.post(`/`, todolist)
