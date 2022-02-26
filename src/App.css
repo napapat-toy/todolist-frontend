@@ -99,3 +99,15 @@ html {
 .btn:active {
   background-color: rgb(0, 110, 0);
 }
+
+.clear {
+  background-color: rgb(78, 78, 78);
+}
+
+.clear:hover {
+  background-color: rgb(109, 109, 109);
+}
+
+.clear:active {
+  background-color: rgb(66, 66, 66);
+}

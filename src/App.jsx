@@ -17,6 +17,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (editTodo) {
+      console.log(todoData);
       updateTodolist(todoData._id, todoData)
       setEditTodo(false)
     } else {
@@ -52,7 +53,7 @@ function App() {
   return (
     <div className="App">
 
-      <div className="app-container">
+      <div className="app-container" id='main'>
         <h1>Todolist App</h1>
         <form onSubmit={handleSubmit}>
           <div className="input-container">
@@ -65,16 +66,18 @@ function App() {
           </div>
           <div className="btn-group">
             <button type='submit' className='btn'>{editTodo ? 'Edit todo' : 'Add todo'}</button>
-            <button type='button' className='btn' onClick={handleClear}>Clear</button>
+            <button type='button' className='btn clear' onClick={handleClear}>Clear</button>
           </div>
         </form>
       </div>
-
-      <div className="showtodo">
-        {allTodo.map((todo) => (
-          <ShowTodo key={todo._id} header={todo.header} text={todo.text} handleEdit={() => handleEdit(todo)} handleDelete={() => handleDelete(todo._id)} />
-        ))}
-      </div>
+      {allTodo ? (
+        <div className="showtodo">
+          {allTodo.map((todo) => (
+            <ShowTodo key={todo._id} header={todo.header} text={todo.text} handleEdit={() => handleEdit(todo)} handleDelete={() => handleDelete(todo._id)} />
+          ))}
+        </div>
+      ) : ('')
+      }
 
     </div>
   );
